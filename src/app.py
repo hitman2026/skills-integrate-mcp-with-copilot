@@ -5,7 +5,6 @@ A super simple FastAPI application that allows students to view and sign up
 for extracurricular activities at Mergington High School.
 """
 
-
 from fastapi import FastAPI, HTTPException, Depends
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import RedirectResponse
@@ -14,7 +13,6 @@ from pathlib import Path
 from sqlalchemy import create_engine, select
 from sqlalchemy.orm import sessionmaker, Session
 from src.db import Base, Activity, Participant
-
 
 app = FastAPI(title="Mergington High School API",
               description="API for viewing and signing up for extracurricular activities")
@@ -37,14 +35,9 @@ current_dir = Path(__file__).parent
 app.mount("/static", StaticFiles(directory=os.path.join(Path(__file__).parent,
           "static")), name="static")
 
-
-
-
 @app.get("/")
 def root():
     return RedirectResponse(url="/static/index.html")
-
-
 
 @app.get("/activities")
 def get_activities(db: Session = Depends(get_db)):
@@ -58,8 +51,6 @@ def get_activities(db: Session = Depends(get_db)):
             "participants": [p.email for p in act.participants]
         }
     return result
-
-
 
 @app.post("/activities/{activity_name}/signup")
 def signup_for_activity(activity_name: str, email: str, db: Session = Depends(get_db)):
@@ -76,8 +67,6 @@ def signup_for_activity(activity_name: str, email: str, db: Session = Depends(ge
     db.commit()
     db.refresh(participant)
     return {"message": f"Signed up {email} for {activity_name}"}
-
-
 
 @app.delete("/activities/{activity_name}/unregister")
 def unregister_from_activity(activity_name: str, email: str, db: Session = Depends(get_db)):
