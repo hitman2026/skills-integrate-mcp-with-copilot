@@ -6,22 +6,29 @@ A super simple FastAPI application that allows students to view and sign up for 
 
 - View all available extracurricular activities
 - Sign up for activities
+- Persistent storage using SQLite and SQLAlchemy
 
 ## Getting Started
 
 1. Install the dependencies:
 
    ```
-   pip install fastapi uvicorn
+   pip install -r requirements.txt
    ```
 
-2. Run the application:
+2. Initialize the database:
 
    ```
-   python app.py
+   python src/init_db.py
    ```
 
-3. Open your browser and go to:
+3. Run the application:
+
+   ```
+   python src/app.py
+   ```
+
+4. Open your browser and go to:
    - API documentation: http://localhost:8000/docs
    - Alternative documentation: http://localhost:8000/redoc
 
@@ -31,20 +38,21 @@ A super simple FastAPI application that allows students to view and sign up for 
 | ------ | ----------------------------------------------------------------- | ------------------------------------------------------------------- |
 | GET    | `/activities`                                                     | Get all activities with their details and current participant count |
 | POST   | `/activities/{activity_name}/signup?email=student@mergington.edu` | Sign up for an activity                                             |
+| DELETE | `/activities/{activity_name}/unregister?email=student@mergington.edu` | Unregister from an activity                                    |
 
 ## Data Model
 
-The application uses a simple data model with meaningful identifiers:
+The application uses a database model:
 
-1. **Activities** - Uses activity name as identifier:
-
+1. **Activities**
+   - Name (unique)
    - Description
    - Schedule
    - Maximum number of participants allowed
-   - List of student emails who are signed up
+   - List of participant emails
 
-2. **Students** - Uses email as identifier:
-   - Name
-   - Grade level
+2. **Participants**
+   - Email
+   - Activity (foreign key)
 
-All data is stored in memory, which means data will be reset when the server restarts.
+All data is stored in a SQLite database (`activities.db`).

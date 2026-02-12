@@ -1,16 +1,58 @@
-# Integrate MCP with Copilot
+# Mergington High School Activities API
 
-<img src="https://octodex.github.com/images/Professortocat_v2.png" align="right" height="200px" />
+A super simple FastAPI application that allows students to view and sign up for extracurricular activities.
 
-Hey hitman2026!
+## Features
 
-Mona here. I'm done preparing your exercise. Hope you enjoy! 💚
+- View all available extracurricular activities
+- Sign up for activities
+- Persistent storage using SQLite and SQLAlchemy
 
-Remember, it's self-paced so feel free to take a break! ☕️
+## Getting Started
 
-[![](https://img.shields.io/badge/Go%20to%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/hitman2026/skills-integrate-mcp-with-copilot/issues/1)
+1. Install the dependencies:
 
----
+   ```
+   pip install -r requirements.txt
+   ```
 
-&copy; 2025 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
+2. Initialize the database:
 
+   ```
+   python src/init_db.py
+   ```
+
+3. Run the application:
+
+   ```
+   python src/app.py
+   ```
+
+4. Open your browser and go to:
+   - API documentation: http://localhost:8000/docs
+   - Alternative documentation: http://localhost:8000/redoc
+
+## API Endpoints
+
+| Method | Endpoint                                                          | Description                                                         |
+| ------ | ----------------------------------------------------------------- | ------------------------------------------------------------------- |
+| GET    | `/activities`                                                     | Get all activities with their details and current participant count |
+| POST   | `/activities/{activity_name}/signup?email=student@mergington.edu` | Sign up for an activity                                             |
+| DELETE | `/activities/{activity_name}/unregister?email=student@mergington.edu` | Unregister from an activity                                    |
+
+## Data Model
+
+The application uses a database model:
+
+1. **Activities**
+   - Name (unique)
+   - Description
+   - Schedule
+   - Maximum number of participants allowed
+   - List of participant emails
+
+2. **Participants**
+   - Email
+   - Activity (foreign key)
+
+All data is stored in a SQLite database (`activities.db`).
