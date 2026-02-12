@@ -1,58 +1,37 @@
-# Mergington High School Activities API
+<div align="center">
 
-A super simple FastAPI application that allows students to view and sign up for extracurricular activities.
+# 🎉 Congratulations hitman2026! 🎉
 
-## Features
+<img src="https://octodex.github.com/images/welcometocat.png" height="200px" />
 
-- View all available extracurricular activities
-- Sign up for activities
-- Persistent storage using SQLite and SQLAlchemy
+### 🌟 You've successfully completed the exercise! 🌟
 
-## Getting Started
+## 🚀 Share Your Success!
 
-1. Install the dependencies:
+**Show off your new skills and inspire others!**
 
-   ```
-   pip install -r requirements.txt
-   ```
+<a href="https://twitter.com/intent/tweet?text=I%20just%20completed%20the%20%22Integrate%20MCP%20with%20GitHub%20Copilot%22%20GitHub%20Skills%20hands-on%20exercise!%20%F0%9F%8E%89%0A%0Ahttps%3A%2F%2Fgithub.com%2Fhitman2026%2Fskills-integrate-mcp-with-copilot%0A%0A%23GitHubSkills%20%23OpenSource%20%23GitHubLearn" target="_blank" rel="noopener noreferrer">
+  <img src="https://img.shields.io/badge/Share%20on%20X-1da1f2?style=for-the-badge&logo=x&logoColor=white" alt="Share on X" />
+</a>
+<a href="https://bsky.app/intent/compose?text=I%20just%20completed%20the%20%22Integrate%20MCP%20with%20GitHub%20Copilot%22%20GitHub%20Skills%20hands-on%20exercise!%20%F0%9F%8E%89%0A%0Ahttps%3A%2F%2Fgithub.com%2Fhitman2026%2Fskills-integrate-mcp-with-copilot%0A%0A%23GitHubSkills%20%23OpenSource%20%23GitHubLearn" target="_blank" rel="noopener noreferrer">
+  <img src="https://img.shields.io/badge/Share%20on%20Bluesky-0085ff?style=for-the-badge&logo=bluesky&logoColor=white" alt="Share on Bluesky" />
+</a>
+<a href="https://www.linkedin.com/feed/?shareActive=true&text=I%20just%20completed%20the%20%22Integrate%20MCP%20with%20GitHub%20Copilot%22%20GitHub%20Skills%20hands-on%20exercise!%20%F0%9F%8E%89%0A%0Ahttps%3A%2F%2Fgithub.com%2Fhitman2026%2Fskills-integrate-mcp-with-copilot%0A%0A%23GitHubSkills%20%23OpenSource%20%23GitHubLearn" target="_blank" rel="noopener noreferrer">
+  <img src="https://img.shields.io/badge/Share%20on%20LinkedIn-0077b5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Share on LinkedIn" />
+</a>
 
-2. Initialize the database:
+### 🎯 What's Next?
 
-   ```
-   python src/init_db.py
-   ```
+**Keep the momentum going!**
 
-3. Run the application:
+[![](https://img.shields.io/badge/Return%20to%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/hitman2026/skills-integrate-mcp-with-copilot/issues/1)
+[![GitHub Skills](https://img.shields.io/badge/Explore%20GitHub%20Skills-000000?style=for-the-badge&logo=github&logoColor=white)](https://learn.github.com/skills)
 
-   ```
-   python src/app.py
-   ```
+*There's no better way to learn than building things!* 🚀
 
-4. Open your browser and go to:
-   - API documentation: http://localhost:8000/docs
-   - Alternative documentation: http://localhost:8000/redoc
+</div>
 
-## API Endpoints
+---
 
-| Method | Endpoint                                                          | Description                                                         |
-| ------ | ----------------------------------------------------------------- | ------------------------------------------------------------------- |
-| GET    | `/activities`                                                     | Get all activities with their details and current participant count |
-| POST   | `/activities/{activity_name}/signup?email=student@mergington.edu` | Sign up for an activity                                             |
-| DELETE | `/activities/{activity_name}/unregister?email=student@mergington.edu` | Unregister from an activity                                    |
+&copy; 2025 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
 
-## Data Model
-
-The application uses a database model:
-
-1. **Activities**
-   - Name (unique)
-   - Description
-   - Schedule
-   - Maximum number of participants allowed
-   - List of participant emails
-
-2. **Participants**
-   - Email
-   - Activity (foreign key)
-
-All data is stored in a SQLite database (`activities.db`).
